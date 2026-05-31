@@ -59,7 +59,7 @@ ETAPA 09 → ✅ Fausto: Revisão dos Desdobramentos
 ETAPA 10 → Checkpoint: Aprovação de Conteúdo
 ETAPA 11 → 🎨 Gabriel: Criação das Peças Visuais
 ETAPA 12 → Checkpoint: Aprovação Visual
-ETAPA 13 → 📣 Paula: Publicação
+ETAPA 13 → 📣 Paula: Publicação ⏸ (aguardando integração Blotato)
 ```
 
 ---
@@ -487,68 +487,26 @@ CONTRASTE: WCAG AA mínimo 4.5:1 para todo texto sobre qualquer fundo
 ## ETAPA 12 — Checkpoint: Aprovação Visual
 
 Apresente os slides ao usuário. Pergunte:
-> "Slides aprovados para publicação? Responda SIM ou descreva o ajuste necessário."
+> "Slides aprovados? Responda SIM ou descreva o ajuste necessário."
 
-Se ajustes: Gabriel corrige e reapresenta. Se SIM: avançar para Paula Publica.
+Se ajustes: Gabriel corrige e reapresenta. Se SIM: encerrar o pipeline e apresentar o resumo da rodada.
 
 ---
 
-## ETAPA 13 — 📣 Paula Publica: Publicação
+## ETAPA 13 — 📣 Paula Publica: Publicação ⏸ PAUSADA
 
-**Persona:** Disciplinada, meticulosa, cautelosa. Nunca publica sem confirmação explícita. Estrutura sequencial: validação → dry-run → preview → confirmação → publicação. Tom profissional e direto.
+> **Esta etapa está desativada.** A Paula Publica e todos os seus arquivos estão preservados, mas a etapa não é executada automaticamente no pipeline atual.
+>
+> **Reativar quando:** integração com Blotato estiver configurada (variável `BLOTATO_API_KEY` no ambiente).
 
-**Tarefa:** Validar, dry-run, preview e publicar nas plataformas.
+Quando reativada, a Paula executa o fluxo completo: validação técnica → dry-run → preview → confirmação → publicação sequencial por plataforma.
 
-### Etapa 1 — Validação Técnica
-
-| Critério | LinkedIn | Instagram |
+| Plataforma | Ferramenta | Specs |
 |---|---|---|
-| Caption | ≤3.000 chars | ≤2.200 chars |
-| Hashtags | 5-8 recomendado | 3-5 recomendado |
-| Slides | PNG/JPG, 1200×627px | 2-10 slides, PNG/JPG, 1080×1440px |
-| Ferramenta | Blotato | instagram-publisher |
+| LinkedIn | Blotato | PNG/JPG, 1200×627px, ≤3.000 chars, 5-8 hashtags |
+| Instagram | instagram-publisher | PNG/JPG, 1080×1440px, 2-10 slides, ≤2.200 chars, 3-5 hashtags |
 
-Se qualquer validação falhar: reportar e aguardar instrução. Não prosseguir.
-
-### Etapa 2 — Dry-Run
-
-Executar dry-run em cada plataforma. Verificar credenciais e conexão.
-- PASS: prosseguir
-- FAIL: reportar erro exato com sugestão de ação corretiva. Aguardar instrução.
-
-### Etapa 3 — Preview Completo
-
-Apresentar por plataforma:
-- Caption exata (com hashtags) + contagem de chars
-- Lista de arquivos de imagem (com dimensões confirmadas)
-- Plataforma e conta de destino
-
-**Ao final, perguntar explicitamente:**
-> "Publicar agora? Responda **SIM** para confirmar cada plataforma."
-
-**Aguardar resposta antes de qualquer ação. Sem inferência. Sem assunção.**
-
-### Etapa 4 — Publicação Sequencial
-
-Após SIM confirmado:
-1. Publicar na 1ª plataforma
-2. Confirmar sucesso com URL do post
-3. Registrar URL e horário (timestamp)
-4. Perguntar sobre a próxima plataforma (se houver)
-
-### Etapa 5 — Registro
-
-Gerar publish-report com:
-- Status de publicação por plataforma
-- URL e horário de cada post publicado
-- Erros documentados (se houver)
-
-### Regras Absolutas da Paula
-- NUNCA publicar sem SIM explícito
-- NUNCA pular o dry-run
-- NUNCA editar copy, hashtags ou imagens na etapa de publicação
-- Publicar em uma plataforma de cada vez
-- Erros reportados com mensagem exata e sugestão de ação corretiva
+**Regra inquebrável:** Paula NUNCA publica sem SIM explícito do usuário.
 
 ---
 
