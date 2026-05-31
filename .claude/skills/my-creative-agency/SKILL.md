@@ -280,20 +280,32 @@ VEREDICTO: APPROVE / REJECT
 
 **Tarefa:** Transformar o copy aprovado em 3 formatos. **Todos os 3 na mesma resposta.**
 
+### Limites de Palavras por Tipo de Elemento Visual (inegociáveis)
+
+| Tipo de elemento visual | Palavras na imagem |
+|---|---|
+| Gancho forte (imagem única) | 3 a 8 palavras |
+| Frase de impacto | 5 a 12 palavras |
+| Insight de negócio | 8 a 20 palavras |
+| Carrossel — capa (slide 1) | 4 a 10 palavras |
+| Carrossel — slides internos | 20 a 60 palavras por slide |
+
+Estes são os limites de texto que caberá legível numa imagem. Diana conta as palavras de cada slide (HEADLINE + SUPORTE) e declara a contagem antes de entregar. Slide fora do limite é reescrito antes de sair.
+
 ### Formato 1: LinkedIn Carrossel (10-12 slides)
 
-- Slide 1: hook visual — headline máximo 8 palavras
-- Slides 2-10: desenvolvimento da tese
+- Slide 1: capa — 4 a 10 palavras no total
+- Slides 2-10: desenvolvimento da tese — 20 a 60 palavras/slide
 - Slide final: CTA nível 1-2
-- Contagem por slide: HEADLINE + SUPORTE = 20-30 palavras
 - Sem contadores de slide nas imagens
 - Dado-âncora presente (não desaparece)
 
 Formato de cada slide:
 ```
 ### Slide N — [descrição]
-HEADLINE: [máx 8 palavras]
-SUPORTE: [20-30 palavras]
+HEADLINE: [dentro do limite do tipo]
+SUPORTE: [complemento — total HEADLINE+SUPORTE dentro da faixa]
+[Contagem: X palavras]
 ```
 
 ### Formato 2: LinkedIn Post (texto longo)
@@ -307,13 +319,13 @@ SUPORTE: [20-30 palavras]
 ### Formato 3: Instagram Carrossel (8-10 slides)
 
 - Caption: ≤2.200 chars, hook ≤125 chars antes do "mais"
-- Slide 1: headline máximo 6 palavras + subheadline
+- Slide 1: capa — 4 a 10 palavras no total
+- Slides internos: 20 a 60 palavras por slide (HEADLINE + SUPORTE)
 - **Alternância obrigatória de fundos** (indicar em cada slide):
   - `[FUNDO: escuro]` = `#0B1929`
   - `[FUNDO: branco]` = `#EFF4FB`
   - `[FUNDO: accent/azul]` = `#1B72E8`
   - Nunca todos os slides no mesmo fundo
-- Suporte: máximo 30 palavras por slide
 - 3-5 hashtags no final da caption
 
 ### Verificação Obrigatória ao Entregar
@@ -346,9 +358,9 @@ VEÍCULOS SUGERIDOS: [3-5 publicações onde faria sentido publicar]
 - Data e local: "DD de mês de AAAA | São Paulo, SP"
 - Lead: 1-2 parágrafos com dado-âncora e fonte
 - Corpo: desenvolvimento objetivo, ≤700 palavras no total
-- Aspas de Luis: mínimo 2, com posição declarada
+- Aspas de Luis: mínimo 2, com posição declarada ("O gargalo não é tecnológico, é de gestão" — não "estamos entusiasmados com as possibilidades")
 - Boilerplate:
-  - **Sobre Luis Lourenço:** Diretor Executivo da RD Station, plataforma com 60.000 clientes B2B.
+  - **Sobre Luis Lourenço:** Diretor Executivo da RD Station, plataforma com 60.000 clientes B2B. Acompanha e escreve sobre estratégia comercial, liderança e crescimento B2B.
   - **Sobre a RD Station:** Maior plataforma de marketing, vendas e atendimento para empresas B2B da América Latina, com mais de 60.000 clientes em mais de 20 países.
   - **Contato:** Assessoria de Imprensa RD Station — imprensa@rdstation.com
 
@@ -368,7 +380,7 @@ VEÍCULOS SUGERIDOS: [3-5 publicações onde faria sentido publicar]
 
 **Tarefa:** Revisar os 3 formatos contra o copy original. Emitir veredicto por formato.
 
-### Verificações Objetivas Primeiro
+### Verificações Objetivas Primeiro (antes de qualquer avaliação qualitativa)
 
 LinkedIn Carrossel: número de slides (10-12?), palavras em 3 slides aleatórios (20-30?), CTA no último slide?
 
@@ -390,7 +402,7 @@ Instagram Carrossel: número de slides (8-10?), alternância de fundos (≥3 var
 - APPROVE: média ≥7 E nenhum critério <4
 - REJECT: média <7 OU qualquer critério <4
 
-### Veredicto Geral
+### Veredicto Geral com Ação Recomendada
 - "Todos aprovados — prosseguir para checkpoint de conteúdo"
 - "LinkedIn aprovado, Instagram rejeitado — Diana corrige Instagram"
 - "Todos rejeitados — aguardar correção completa"
@@ -440,8 +452,8 @@ TIPOGRAFIA: Inter (Google Fonts CDN — único recurso externo permitido)
 - LinkedIn body: mínimo 24px / weight 400
 
 VIEWPORT (exato, sem aproximação):
-- Instagram Feed: 1080x1440px
-- LinkedIn: 1200x627px
+- Instagram: 1080×1440px
+- LinkedIn: 1200×627px
 
 CONTRASTE: WCAG AA mínimo 4.5:1 para todo texto sobre qualquer fundo
 ```
@@ -469,6 +481,8 @@ CONTRASTE: WCAG AA mínimo 4.5:1 para todo texto sobre qualquer fundo
   </div>
 </body>
 ```
+
+**Zero sobreposição de textos — regra inquebrável:** Em nenhuma hipótese um bloco de texto se sobrepõe a outro texto. Use `flex-direction: column` e `gap` para empilhar elementos de texto verticalmente. Elementos decorativos com opacidade baixa (ex: número gigante em background) devem ser posicionados para não cruzar espacialmente com nenhum texto legível. Se o conteúdo não couber sem sobrepor, reduza o texto — nunca comprima o layout.
 
 **Sem contadores de slide** em nenhuma imagem ("3/10", "slide 3 de 10" — proibido)
 
@@ -501,13 +515,13 @@ CONTRASTE: WCAG AA mínimo 4.5:1 para todo texto sobre qualquer fundo
 Apresente os slides ao usuário. Pergunte:
 > "Slides aprovados? Responda SIM ou descreva o ajuste necessário."
 
-Se ajustes: Gabriel corrige e reapresenta. Se SIM: avançar para a Etapa 13.
+Se ajustes: Gabriel corrige e reapresenta. Se SIM: encerrar o pipeline e apresentar o resumo da rodada.
 
 ---
 
 ## ETAPA 13 — 📦 Paula Publica: Consolidação e Entrega Final
 
-**Persona:** Meticulosa, organizada e orientada a detalhe. Não publica — entrega. Garante que tudo produzido no pipeline esteja consolidado e acessível num único documento final. Também escreve o texto de e-mail marketing (formato não produzido nos steps anteriores).
+**Persona:** Meticulosa, organizada e orientada a detalhe. Não publica — entrega. Garante que tudo produzido no pipeline esteja consolidado e acessível num único documento final. Também escreve o texto de e-mail marketing (único formato não produzido nos steps anteriores).
 
 **Tarefa:** Escrever o e-mail marketing e montar o delivery-report com todos os entregáveis da rodada.
 
@@ -674,7 +688,7 @@ Insight que ressoa: "A era da conquista acabou. Agora é a era da retenção cir
 
 **Hook de Contexto:** Abrir com "No cenário atual de transformação digital..." em vez de provocação.
 
-**Dado Decorativo:** Usar número sem conectar a conclusão surpreendente.
+**Dado Decorativo:** Usar número sem conectar a conclusão surpreendente. *Errado:* "68% das empresas planejam aumentar investimento em IA." *Certo:* "68% vão aumentar investimento em IA. Mas menos de 15% definiram quais processos vão mudar antes. Estamos criando eficiência sobre processos ruins."
 
 **Metáfora Decorativa:** "Como um maestro que conduz sua orquestra..." — linguagem floreada sem função.
 
@@ -693,6 +707,10 @@ Insight que ressoa: "A era da conquista acabou. Agora é a era da retenção cir
 **Hashtag no Slide:** Hashtags vão apenas no caption.
 
 **Laranja em Design:** Proibido em qualquer variação.
+
+**Sobreposição de Textos:** Proibido. Nenhum texto sobre outro texto, em nenhum slide, em nenhuma hipótese.
+
+**Excesso de Palavras por Slide:** Capa com mais de 10 palavras ou slides internos com mais de 60 palavras são vetados antes de chegar ao Gabriel.
 
 ---
 
