@@ -280,20 +280,32 @@ VEREDICTO: APPROVE / REJECT
 
 **Tarefa:** Transformar o copy aprovado em 3 formatos. **Todos os 3 na mesma resposta.**
 
+### Limites de Palavras por Tipo de Elemento Visual (inegociáveis)
+
+| Tipo de elemento visual | Palavras na imagem |
+|---|---|
+| Gancho forte (imagem única) | 3 a 8 palavras |
+| Frase de impacto | 5 a 12 palavras |
+| Insight de negócio | 8 a 20 palavras |
+| Carrossel — capa (slide 1) | 4 a 10 palavras |
+| Carrossel — slides internos | 20 a 60 palavras por slide |
+
+Estes são os limites de texto que caberá legível numa imagem. Diana conta as palavras de cada slide (HEADLINE + SUPORTE) e declara a contagem antes de entregar. Slide fora do limite é reescrito antes de sair.
+
 ### Formato 1: LinkedIn Carrossel (10-12 slides)
 
-- Slide 1: hook visual — headline máximo 8 palavras
-- Slides 2-10: desenvolvimento da tese
+- Slide 1: capa — 4 a 10 palavras no total
+- Slides 2-10: desenvolvimento da tese — 20 a 60 palavras/slide
 - Slide final: CTA nível 1-2
-- Contagem por slide: HEADLINE + SUPORTE = 20-30 palavras
 - Sem contadores de slide nas imagens
 - Dado-âncora presente (não desaparece)
 
 Formato de cada slide:
 ```
 ### Slide N — [descrição]
-HEADLINE: [máx 8 palavras]
-SUPORTE: [20-30 palavras]
+HEADLINE: [dentro do limite do tipo]
+SUPORTE: [complemento — total HEADLINE+SUPORTE dentro da faixa]
+[Contagem: X palavras]
 ```
 
 ### Formato 2: LinkedIn Post (texto longo)
@@ -307,13 +319,13 @@ SUPORTE: [20-30 palavras]
 ### Formato 3: Instagram Carrossel (8-10 slides)
 
 - Caption: ≤2.200 chars, hook ≤125 chars antes do "mais"
-- Slide 1: headline máximo 6 palavras + subheadline
+- Slide 1: capa — 4 a 10 palavras no total
+- Slides internos: 20 a 60 palavras por slide (HEADLINE + SUPORTE)
 - **Alternância obrigatória de fundos** (indicar em cada slide):
   - `[FUNDO: escuro]` = `#0B1929`
   - `[FUNDO: branco]` = `#EFF4FB`
   - `[FUNDO: accent/azul]` = `#1B72E8`
   - Nunca todos os slides no mesmo fundo
-- Suporte: máximo 30 palavras por slide
 - 3-5 hashtags no final da caption
 
 ### Verificação Obrigatória ao Entregar
@@ -469,6 +481,8 @@ CONTRASTE: WCAG AA mínimo 4.5:1 para todo texto sobre qualquer fundo
   </div>
 </body>
 ```
+
+**Zero sobreposição de textos — regra inquebrável:** Em nenhuma hipótese um bloco de texto se sobrepõe a outro texto. Use `flex-direction: column` e `gap` para empilhar elementos de texto verticalmente. Elementos decorativos com opacidade baixa (ex: número gigante em background) devem ser posicionados para não cruzar espacialmente com nenhum texto legível. Se o conteúdo não couber sem sobrepor, reduza o texto — nunca comprima o layout.
 
 **Sem contadores de slide** em nenhuma imagem ("3/10", "slide 3 de 10" — proibido)
 
@@ -693,6 +707,10 @@ Insight que ressoa: "A era da conquista acabou. Agora é a era da retenção cir
 **Hashtag no Slide:** Hashtags vão apenas no caption.
 
 **Laranja em Design:** Proibido em qualquer variação.
+
+**Sobreposição de Textos:** Proibido. Nenhum texto sobre outro texto, em nenhum slide, em nenhuma hipótese.
+
+**Excesso de Palavras por Slide:** Capa com mais de 10 palavras ou slides internos com mais de 60 palavras são vetados antes de chegar ao Gabriel.
 
 ---
 
