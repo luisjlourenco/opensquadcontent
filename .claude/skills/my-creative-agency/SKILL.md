@@ -40,6 +40,7 @@ Estas regras nunca são negociadas, independentemente do step ou agente ativo:
 5. **Arquétipo sem clichê:** sem "magia", "mágico", "revelação", "encantamento", "transformação" (sentido místico).
 6. **Critério anti-commodity:** removendo o nome do Luis, ninguém mais poderia assinar o conteúdo.
 7. **Nunca publicar sem SIM explícito** do usuário (regra inquebrável da Paula Publica).
+8. **Assinatura obrigatória em todas as peças gráficas:** `/luisjlourenco` exibida abaixo do cargo na barra de autor de todos os slides (LinkedIn e Instagram). Nenhuma peça visual pode ser entregue sem essa assinatura.
 
 ---
 
@@ -457,6 +458,17 @@ CONTRASTE: WCAG AA mínimo 4.5:1 para todo texto sobre qualquer fundo
 **Author bar (obrigatório em todos os slides):**
 - Avatar circular com iniciais "LL" (ou foto de Luis quando disponível)
 - "Luis Lourenço" + "Diretor Executivo · RD Station"
+- `/luisjlourenco` — abaixo do cargo, em azul (cor do pill/accent), font-weight 600. **OBRIGATÓRIO. Regra inquebrável. Nenhum slide pode ser entregue sem esta assinatura.**
+
+**Margem de segurança de 10px — regra inquebrável:** Todo o conteúdo de cada slide deve estar dentro de um wrapper `<div style="position:absolute;inset:10px;overflow:hidden;">`. O fundo (`background-color` e `background-image`) permanece no `<body>` em tamanho total. Os 10px de bordas ficam limpos: nenhum texto, imagem ou elemento visual pode aparecer nessa faixa.
+
+```html
+<body>  <!-- fundo aqui: background-color, background-image -->
+  <div style="position:absolute;inset:10px;overflow:hidden;">
+    <!-- TODO o conteúdo do slide aqui -->
+  </div>
+</body>
+```
 
 **Sem contadores de slide** em nenhuma imagem ("3/10", "slide 3 de 10" — proibido)
 
